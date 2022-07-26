@@ -84,13 +84,23 @@ export default function EcommerceShop() {
         <Typography variant="h4" sx={{ mb: 2 }}>
           Trends
         </Typography>
-        <Box sx={{ width: '100%' }}>
-          <Box sx={{ borderColor: 'divider' }}>
+        <Box sx={{ width: '100%', }}>
+          <Box sx={{ borderColor: 'divider', display: "flex", justifyContent: "space-between" }}>
             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
               <Tab label="Women" {...a11yProps(0)} />
               <Tab label="Men" {...a11yProps(1)} />
               <Tab label="Kids" {...a11yProps(2)} />
             </Tabs>
+            {/* <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}> */}
+            <Stack direction="row" flexShrink={0} sx={{ my: 1 }}>
+              <ProductFilterSidebar
+                isOpenFilter={openFilter}
+                onOpenFilter={handleOpenFilter}
+                onCloseFilter={handleCloseFilter}
+              />
+              {/* <ProductSort /> */}
+            </Stack>
+            {/* </Stack> */}
           </Box>
 
           <TabPanel value={value} index={0}>
@@ -142,16 +152,7 @@ export default function EcommerceShop() {
           </TabPanel>
         </Box>
 
-        <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
-          <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
-            <ProductFilterSidebar
-              isOpenFilter={openFilter}
-              onOpenFilter={handleOpenFilter}
-              onCloseFilter={handleCloseFilter}
-            />
-            {/* <ProductSort /> */}
-          </Stack>
-        </Stack>
+
 
         <ProductList products={PRODUCTS} />
         {/* <ProductCartWidget /> */}
