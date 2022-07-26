@@ -92,10 +92,11 @@ export default function EcommerceShop() {
               <Tab label="Kids" {...a11yProps(2)} />
             </Tabs>
           </Box>
+          
           <TabPanel value={value} index={0}>
-            <List sx={{ display: "flex", maxWidth: "inherit" }}>
+            <List sx={{ display: "flex", flexWrap: 'wrap' }}>
               {SubCategory.women.map((product) => (
-                <ListItem key={product.id} item xs={12} sm={6} md={3}>
+                <ListItem sx={{ width: 'fit-content' }} key={product.id} item xs={12} sm={6} md={3}>
                   <Stack direction="row" spacing={1}>
                     <Chip label={product} variant="outlined" />
                   </Stack>
@@ -103,13 +104,14 @@ export default function EcommerceShop() {
               ))}
             </List>
           </TabPanel>
+          
           <TabPanel sx={{ maxWidth: "70%" }} value={value} index={1}>
-
-            <List sx={{ display: "flex", maxWidth: "70%", overflow: "hide" }}>
+            <List sx={{ display: "flex", flexWrap: 'wrap' }}>
               {SubCategory.men.map((product) => (
                 <ListItem sx={{
-                  padding: "0px 5px ",
+                  padding: "8px 16px 8px 0px",
                   flexFlow: "column wrap",
+                  width: 'fit-content',
                 }} key={product.id} item xs={12} sm={6} md={3}>
                   <Stack direction="row" spacing={0}>
                     <Chip label={product} variant="outlined" />
@@ -118,11 +120,15 @@ export default function EcommerceShop() {
               ))}
             </List>
           </TabPanel>
+          
           <TabPanel value={value} index={2}>
-
-            <List sx={{ display: "flex", maxWidth: "inherit" }}>
+            <List sx={{ display: "flex", flexWrap: 'wrap' }}>
               {SubCategory.kids.map((product) => (
-                <ListItem key={product.id} item xs={12} sm={6} md={3}>
+                <ListItem sx={{
+                  padding: "8px 16px 8px 0px",
+                  flexFlow: "column wrap",
+                  width: 'fit-content',
+                }} key={product.id} item xs={12} sm={6} md={3}>
                   <Stack direction="row" spacing={1}>
                     <Chip label={product} variant="outlined" />
                   </Stack>
@@ -131,6 +137,7 @@ export default function EcommerceShop() {
             </List>
           </TabPanel>
         </Box>
+        
         <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
           <Stack direction="row" spacing={1} flexShrink={0} sx={{ my: 1 }}>
             <ProductFilterSidebar
