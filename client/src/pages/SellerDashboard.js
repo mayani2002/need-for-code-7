@@ -10,8 +10,6 @@ import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } fro
 import PRODUCTS from '../_mock/products';
 
 
-
-
 export default function SellerShop() {
 
     const navigate = useNavigate();
@@ -38,7 +36,7 @@ export default function SellerShop() {
                 </Typography>
                 <Box sx={{ borderColor: 'divider', display: "flex", justifyContent: "space-between" }}>
 
-                    <Button onClick={() => navigateTo("./createProductPost")} sx={{ height: "2rem" }} variant="contained" href="#contained-buttons">
+                    <Button onClick={() => navigateTo("/createProductPost")} sx={{ height: "2rem" }} variant="contained">
                         Upload
                     </Button>
                     <Stack direction="row" flexWrap="wrap-reverse" alignItems="center" justifyContent="flex-end" sx={{ mb: 5 }}>
