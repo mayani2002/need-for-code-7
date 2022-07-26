@@ -116,118 +116,117 @@ export default function RegisterForm() {
 
 
     return (
-      <H1>Register</H1>
 
-      // <Box
-      //   sx={{
-      //     marginTop: 8,
-      //     display: 'flex',
-      //     flexDirection: 'column',
-      //     alignItems: 'center',
-      //   }}
-      // >
-      //   <FormControl component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
-      //     <Grid container spacing={2}>
-      //       <Grid item xs={12} sm={6}>
-      //         <TextField
-      //           autoComplete="given-name"
-      //           onBlur={handleInputValue}
-      //           onChange={handleInputValue}
-      //           name="firstName"
-      //           required
-      //           fullWidth
-      //           id="firstName"
-      //           label="First Name"
-      //           autoFocus
-      //           {...(errors.firstName && { error: true, helperText: errors.firstName })}
-      //         />
-      //       </Grid>
-      //       <Grid item xs={12} sm={6}>
-      //         <TextField
-      //           required
-      //           onBlur={handleInputValue}
-      //           onChange={handleInputValue}
-      //           fullWidth
-      //           id="lastName"
-      //           label="Last Name"
-      //           name="lastName"
-      //           autoComplete="family-name"
-      //           {...(errors.lastName && { error: true, helperText: errors.lastName })}
-      //         />
-      //       </Grid>
-      //       <Grid item xs={12}>
-      //         <TextField
-      //           required
-      //           onBlur={handleInputValue}
-      //           onChange={handleInputValue}
-      //           fullWidth
-      //           id="email"
-      //           label="Email Address"
-      //           name="email"
-      //           autoComplete="email"
-      //           type="email"
-      //           {...(errors.email && { error: true, helperText: errors.email })}
+      <Box
+        sx={{
+          marginTop: 8,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+        }}
+      >
+        <FormControl component="form" noValidate onSubmit={handleFormSubmit} sx={{ mt: 3 }}>
+          <Grid container spacing={2}>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                autoComplete="given-name"
+                onBlur={handleInputValue}
+                onChange={handleInputValue}
+                name="firstName"
+                required
+                fullWidth
+                id="firstName"
+                label="First Name"
+                autoFocus
+                {...(errors.firstName && { error: true, helperText: errors.firstName })}
+              />
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <TextField
+                required
+                onBlur={handleInputValue}
+                onChange={handleInputValue}
+                fullWidth
+                id="lastName"
+                label="Last Name"
+                name="lastName"
+                autoComplete="family-name"
+                {...(errors.lastName && { error: true, helperText: errors.lastName })}
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <TextField
+                required
+                onBlur={handleInputValue}
+                onChange={handleInputValue}
+                fullWidth
+                id="email"
+                label="Email Address"
+                name="email"
+                autoComplete="email"
+                type="email"
+                {...(errors.email && { error: true, helperText: errors.email })}
 
-      //         />
-      //       </Grid>
-      //       <Grid item xs={12}>
-      //         <FormLabel required>
-      //           I am a -
-      //         </FormLabel>
-      //         <RadioGroup
-      //           row
-      //           aria-labelledby="demo-row-radio-buttons-group-label"
-      //           name="userType"
-      //           onChange={handleInputValue}
-      //           {...(errors.userType && { error: true, helperText: errors.userType })}
-      //         >
-      //           <FormControlLabel value="Tech student / professional" control={<Radio />} label="Tech student / professional" />
-      //           <FormControlLabel value="Entrepreneur" control={<Radio />} label="Entrepreneur" />
-      //           <FormControlLabel value="Both" control={<Radio />} label="Both" />
-      //         </RadioGroup>
-      //       </Grid>
-      //       <Grid item xs={12}>
-      //         <FormLabel required>
-      //           Would love to participate as a -
-      //         </FormLabel>
-      //         <RadioGroup
+              />
+            </Grid>
+            <Grid item xs={12}>
+              <FormLabel required>
+                I am a -
+              </FormLabel>
+              <RadioGroup
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="userType"
+                onChange={handleInputValue}
+                {...(errors.userType && { error: true, helperText: errors.userType })}
+              >
+                <FormControlLabel value="Tech student / professional" control={<Radio />} label="Tech student / professional" />
+                <FormControlLabel value="Entrepreneur" control={<Radio />} label="Entrepreneur" />
+                <FormControlLabel value="Both" control={<Radio />} label="Both" />
+              </RadioGroup>
+            </Grid>
+            <Grid item xs={12}>
+              <FormLabel required>
+                Would love to participate as a -
+              </FormLabel>
+              <RadioGroup
 
-      //           row
-      //           aria-labelledby="demo-row-radio-buttons-group-label"
-      //           name="userTypeSelected"
-      //           // onChange={(event) => setUserTypeSelected(event.target.value)}>
-      //           onChange={handleInputValue}
-      //           {...(errors.userTypeSelected && { error: true, helperText: errors.userTypeSelected })}
-      //         >
-      //           <FormControlLabel value="Beta user only" control={<Radio />} label="Beta user only" />
-      //           <FormControlLabel value="Developer testing my product with Beta users" control={<Radio />} label="Developer testing my product with Beta users" />
-      //           <FormControlLabel value="Both" control={<Radio />} label="Both" />
-      //         </RadioGroup>
-      //       </Grid>
-      //       <Grid item xs={12}>
-      //         <FormControlLabel
-      //           required
-      //           control={
-      //             <Checkbox
-      //               // checked="false"
-      //               name="allowExtraEmails"
-      //               color="primary"
-      //               onChange={handleCheckBox}
-      //               {...(errors.allowExtraEmails && { error: true, helperText: errors.allowExtraEmails })} />}
-      //           label="I want to receive updates via email once the platform is built.*"
-      //         />
-      //       </Grid>
-      //     </Grid>
-      //     <Button
-      //       type="submit"
-      //       fullWidth
-      //       variant="contained"
-      //       sx={{ mt: 3, mb: 2 }}
-      //     >
-      //       Submit
-      //     </Button>
-      //   </FormControl>
-      // </Box>
+                row
+                aria-labelledby="demo-row-radio-buttons-group-label"
+                name="userTypeSelected"
+                // onChange={(event) => setUserTypeSelected(event.target.value)}>
+                onChange={handleInputValue}
+                {...(errors.userTypeSelected && { error: true, helperText: errors.userTypeSelected })}
+              >
+                <FormControlLabel value="Beta user only" control={<Radio />} label="Beta user only" />
+                <FormControlLabel value="Developer testing my product with Beta users" control={<Radio />} label="Developer testing my product with Beta users" />
+                <FormControlLabel value="Both" control={<Radio />} label="Both" />
+              </RadioGroup>
+            </Grid>
+            <Grid item xs={12}>
+              <FormControlLabel
+                required
+                control={
+                  <Checkbox
+                    // checked="false"
+                    name="allowExtraEmails"
+                    color="primary"
+                    onChange={handleCheckBox}
+                    {...(errors.allowExtraEmails && { error: true, helperText: errors.allowExtraEmails })} />}
+                label="I want to receive updates via email once the platform is built.*"
+              />
+            </Grid>
+          </Grid>
+          <Button
+            type="submit"
+            fullWidth
+            variant="contained"
+            sx={{ mt: 3, mb: 2 }}
+          >
+            Submit
+          </Button>
+        </FormControl>
+      </Box >
     );
   }
 }
