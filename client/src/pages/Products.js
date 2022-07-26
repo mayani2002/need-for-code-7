@@ -7,13 +7,14 @@ import Page from '../components/Page';
 import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
 // mock
 import PRODUCTS from '../_mock/products';
+import Category from '../_mock/category';
 
 // ----------------------------------------------------------------------
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div  
+    <div
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -59,24 +60,6 @@ export default function EcommerceShop() {
     setOpenFilter(false);
   };
 
-  const SubCategory = {
-    men: ['Undershirt', 'Shirts', 'Pyjama', 'T-Shirts',
-      'Boxers & Slips de bain', 'Shorts', 'Suits', 'Hoodies', 'Boxers',
-      'Sweaters', 'Overcoats', 'Sweatshirts', 'Suit Jackets', 'JEANS',
-      'Trousers'],
-    women: ['T-shirts', 'Blouses & Chemises', 'Chemises', 'Denim & Jeans',
-      'Hoodies', 'Blazers', 'Nightgown', 'Robes', 'Jackets',
-      'Hoodies & Sweatshirts', 'Suits & Co-ords', 'Sweatershirts',
-      'Shorts', 'TOPS', 'Sun Protective Outerwear', 'Tops', 'Leggings'],
-    kids: ['Sandals', 'Robes', 'Pantalons & Jupes', 'Tops & T-shirt',
-      'Pyjamas', 'Flats & Loafers', 'Tops', 'Slippers', 'Trainers',
-      'Sneakers', 'Sweaters & Hoodies', 'Pulls & Sweat-shirts',
-      'Trousses', 'Swimwear', 'Broches & Couvre-chefs', 'Accessoires'],
-    shoes: ['Loafers', 'Sneakers & Baskets', 'Boots & Ankle Boots', 'Baskets',
-      'Sandales', 'Ladies boots', 'Slippers', 'High heels', 'Slipper',
-      'Town footwear', 'Footwear accessories', 'Flat & Loafers',
-      'Sports shoes'],
-  };
 
   return (
     <Page title="Dashboard: Products">
@@ -105,7 +88,7 @@ export default function EcommerceShop() {
 
           <TabPanel value={value} index={0}>
             <List sx={{ display: "flex", flexWrap: 'wrap' }}>
-              {SubCategory.women.map((product) => (
+              {Category[0][1].map((product) => (
                 <ListItem sx={{
                   padding: "8px 16px 8px 0px",
                   flexFlow: "column wrap",
@@ -121,7 +104,7 @@ export default function EcommerceShop() {
 
           <TabPanel sx={{ maxWidth: "70%" }} value={value} index={1}>
             <List sx={{ display: "flex", flexWrap: 'wrap' }}>
-              {SubCategory.men.map((product) => (
+              {Category[1][1].map((product) => (
                 <ListItem sx={{
                   padding: "8px 16px 8px 0px",
                   flexFlow: "column wrap",
@@ -137,7 +120,7 @@ export default function EcommerceShop() {
 
           <TabPanel value={value} index={2}>
             <List sx={{ display: "flex", flexWrap: 'wrap' }}>
-              {SubCategory.kids.map((product) => (
+              {Category[2][1].map((product) => (
                 <ListItem sx={{
                   padding: "8px 16px 8px 0px",
                   flexFlow: "column wrap",
