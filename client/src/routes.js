@@ -9,6 +9,7 @@ import User from './pages/User';
 import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
+import CreateProductPost from './pages/CreateProductPost';
 import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 
@@ -34,6 +35,7 @@ export default function Router() {
         { path: '/', element: <Navigate to="/dashboard/products" /> },
         { path: 'login', element: <Login /> },
         { path: 'register', element: <Register /> },
+        { path: 'createProductPost', element: <CreateProductPost /> },
         { path: '404', element: <NotFound /> },
         { path: '*', element: <Navigate to="/404" /> },
       ],
