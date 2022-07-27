@@ -26,14 +26,6 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { 
-          brand, brandUrl, category, codCountry, currency,
-          currentPrice, discount, id, imageUrl, isNew, likesCount, model, 
-          name, rawPrice, subcategoy, url, variation0Color, variation0Image, 
-          variation0Thumbnail, variation1Color, variation1Image, variation1Thumbnail
-        } = product;
-  
-
         const navigate = useNavigate();
 
         const navigateTo = (location) => {
@@ -41,7 +33,7 @@ export default function ShopProductCard({ product }) {
         };
         const handleClick = ()=>{
           console.log(product);
-          navigateTo("/dashboard/productDescription");
+          navigateTo("/dashboard/productDescription", );
         }
     
   return (
@@ -68,13 +60,13 @@ export default function ShopProductCard({ product }) {
           height: '100%',
           objectFit: 'cover',
           position: 'absolute',
-        }} alt={name} src={product.image_url} />
+        }} alt={product.name} src={product.image_url} />
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
         <Link to="#" color="inherit" underline="hover" component={RouterLink}>
           <Typography variant="subtitle2" noWrap>
-            {name}
+            {product.name}
           </Typography>
         </Link>
 
