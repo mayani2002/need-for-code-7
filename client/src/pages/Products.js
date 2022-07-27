@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 // material
 import { Container, Box, Stack, Typography, Tab, Tabs, Toolbar, List, ListItem, Chip } from '@mui/material';
 // components
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { getAllProducts } from '../service/api';
 import Page from '../components/Page';
 import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
 // mock
@@ -45,11 +47,30 @@ function a11yProps(index) {
 // ----------------------------------------------------------------------
 
 export default function EcommerceShop() {
+	const theme = createTheme({
+		components: {
+
+		}
+	});
+
   const [openFilter, setOpenFilter] = useState(false);
   const [value, setValue] = useState(0);
 
-  const handleChange = (event, newValue) => {
+  const handleChange = async (event, newValue) => {
     setValue(newValue);
+
+		let productCategory = null
+		if (value === 0)
+			productCategory = "men"
+		else if (value === 1)
+			productCategory = "kids"
+		else if (value === 2)
+			productCategory = "women"
+		const res = await getAllProducts(productCategory);
+		
+		if (res) {
+			console.log(res);
+		}
   };
 
   const handleOpenFilter = () => {
@@ -94,7 +115,15 @@ export default function EcommerceShop() {
                   width: 'fit-content'
                 }} key={product.id} item xs={12} sm={6} md={3}>
                   <Stack direction="row" spacing={1}>
-                    <Chip label={product} variant="outlined" />
+                    <Chip 
+											sx = {{
+												'&:hover': {
+													backgroundColor: '#D1D1D1'
+												}
+											}}
+											onClick={handleChipClick} 
+											label={product} 
+											variant="outlined" />
                   </Stack>
                 </ListItem>
               ))}
@@ -110,7 +139,7 @@ export default function EcommerceShop() {
                   width: 'fit-content',
                 }} key={product.id} item xs={12} sm={6} md={3}>
                   <Stack direction="row" spacing={0}>
-                    <Chip label={product} variant="outlined" />
+                    <Chip onClick={handleChipClick} label={product} variant="outlined" />
                   </Stack>
                 </ListItem>
               ))}
@@ -126,7 +155,7 @@ export default function EcommerceShop() {
                   width: 'fit-content',
                 }} key={product.id} item xs={12} sm={6} md={3}>
                   <Stack direction="row" spacing={1}>
-                    <Chip label={product} variant="outlined" />
+                    <Chip onClick={handleChipClick} label={product} variant="outlined" />
                   </Stack>
                 </ListItem>
               ))}

@@ -7,6 +7,11 @@ import json
 
 data = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/kids.csv')
 
+kidsData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/kids.csv')
+menData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/men.csv')
+womenData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/women.csv')
+shoesData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/shoes.csv')
+
 row_subcategory_drop = ['Culottes de grossesse', 'Chaussures pour garçon',
        'Brassières de grossesse',
        'Costumes pour bébé', 'Salopettes & Combinaisons',
@@ -66,3 +71,27 @@ def getSimilarKidsProducts(productName):
     similarProducts = data[new_ls]
 
     return json.dumps(ls)
+
+# def getProducts():
+#     productsData = "Data Not Available"
+#     print("Request Recieved!")
+#     # recievedData = request.json
+#     categoryRequested = "shoes"
+
+#     if categoryRequested == "kids":
+#         # kidsData = kidsData.sort_values(by=['likes_count'], ascending=False)
+#         print(kidsData.sort_values(by=['likes_count'], ascending=False)['likes_count'])
+#     elif categoryRequested == "men":
+#         # menData = menData.sort_values(by=['likes_count'], ascending=False)
+#         print(menData.sort_values(by=['likes_count'], ascending=False)['likes_count'])
+#     elif categoryRequested == "women":
+#         # womenData = womenData.sort_values(by=['likes_count'], ascending=False)
+#         print(womenData.sort_values(by=['likes_count'], ascending=False)['likes_count'])
+#     elif categoryRequested == "shoes":
+#         # shoesData = shoesData.sort_values(by=['likes_count'], ascending=False)
+#         print(shoesData.sort_values(by=['likes_count'], ascending=False)['likes_count'])
+    
+#     print(productsData)
+
+
+# getProducts()

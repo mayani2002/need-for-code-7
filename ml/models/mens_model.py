@@ -38,15 +38,18 @@ def getSimilarMenProducts(productName):
     distances, indices = model_men_knn.kneighbors(likes_features_df.iloc[query_index, :].values.reshape(1,-1), n_neighbors=11)
 
     
-    ls = []
+    ls = {}
     for i in range(0, len(distances.flatten())):
         if i == 0:
             print("Recommendations for {0}".format(likes_features_df.index[query_index]))
         else:
             print("{0}: {1}, with distance of {2}".format(i, likes_features_df.index[indices.flatten()[i]], distances.flatten()[i]))
-            ls.append(likes_features_df.index[indices.flatten()[i]])
+            ls[i] = likes_features_df.index[indices.flatten()[i]]
     
-    new_ls = data['name'].isin(ls)
+    print(ls)
+    new_ls = data['name'].isin(ls.values())
     similarProducts = data[new_ls]
+    print(similarProducts)
 
-    return json.dumps(ls)
+    return similarProducts.to_json(orient='records')
+
