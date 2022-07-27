@@ -9,9 +9,9 @@ from models import women_model
 from models import shoes_model
 import json
 
-kidsData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/kids.csv')
-menData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/men.csv')
-womenData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/women.csv')
+kidsData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/df_kids.csv')
+menData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/df_men.csv')
+womenData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/df_women.csv')
 shoesData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/shoes.csv')
 
 # Creating a Flask App
@@ -50,44 +50,20 @@ def getAllProducts():
     recievedData = request.json
     categoryRequested = recievedData["Category"]
 
-    if categoryRequested == "kids":
+    if categoryRequested == "Kids":
         # kidsData.sort_values(by=['likes_count'], ascending=False)
-        return kidsData.sort_values(by=['likes_count'], ascending=False).to_json(orient='records')
-    elif categoryRequested == "men":
+        return kidsData.to_json(orient='records')
+    elif categoryRequested == "Men":
         # menData.sort_values(by=['likes_count'], ascending=False)
-        return menData.sort_values(by=['likes_count'], ascending=False).to_json(orient='records')
-    elif categoryRequested == "women":
+        return menData.to_json(orient='records')
+    elif categoryRequested == "Women":
         # womenData.sort_values(by=['likes_count'], ascending=False)
-        return womenData.sort_values(by=['likes_count'], ascending=False).to_json(orient='records')
-    elif categoryRequested == "shoes":
+        return womenData.to_json(orient='records')
+    elif categoryRequested == "Shoes":
         # shoesData.sort_values(by=['likes_count'], ascending=False)
         return shoesData.sort_values(by=['likes_count'], ascending=False).to_json(orient='records')
     
     return productsData
-
-
-# def getProducts():
-#     productsData = "Data Not Available"
-#     print("Request Recieved!")
-#     # recievedData = request.json
-#     categoryRequested = "shoes"
-
-#     if categoryRequested == "kids":
-#         # kidsData.sort_values(by=['likes_count'], ascending=False)
-#         print(json.dumps(kidsData.sort_values(by=['likes_count'], ascending=False).to_numpy().tolist()))
-#     elif categoryRequested == "men":
-#         # menData.sort_values(by=['likes_count'], ascending=False)
-#         print(json.dumps(menData.sort_values(by=['likes_count'], ascending=False).to_numpy().tolist()))
-#     elif categoryRequested == "women":
-#         # womenData.sort_values(by=['likes_count'], ascending=False)
-#         print(json.dumps(womenData.sort_values(by=['likes_count'], ascending=False).to_numpy().tolist()))
-#     elif categoryRequested == "shoes":
-#         # shoesData.sort_values(by=['likes_count'], ascending=False)
-#         print(json.dumps(shoesData.sort_values(by=['likes_count'], ascending=False).to_numpy().tolist()))
-    
-#     print(productsData)
-
-
 
 
 if __name__ == "__main__":

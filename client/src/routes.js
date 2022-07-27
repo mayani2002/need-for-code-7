@@ -2,7 +2,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
-//
+import Products from './pages/Products';
 import Blog from './pages/Blog';
 import SellerDashboard from './pages/SellerDashboard';
 import User from './pages/User';
@@ -10,7 +10,6 @@ import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
 import CreateProductPost from './pages/CreateProductPost';
-import Products from './pages/Products';
 import ProductDescription from './pages/ProductDescription';
 import DashboardApp from './pages/DashboardApp';
 
@@ -25,7 +24,7 @@ export default function Router() {
         // { path: 'app', element: <DashboardApp /> },
         { path: 'sellerDashboard', element: <SellerDashboard /> },
         { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
+        { path: 'products', element: <Products />, },
         { path: 'productDescription', element: <ProductDescription /> },
         // { path: 'blog', element: <Blog /> },
       ],

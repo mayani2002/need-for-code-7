@@ -12,24 +12,24 @@ menData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/men.csv')
 womenData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/women.csv')
 shoesData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/shoes.csv')
 
-row_subcategory_drop = ['Culottes de grossesse', 'Chaussures pour garçon',
-       'Brassières de grossesse',
+row_subcategory_drop = ['Brassières de grossesse',
        'Costumes pour bébé', 'Salopettes & Combinaisons',
        'Maillots de bain', 'Coutumes & Co-ords',
        'Costume & Jupe-culotte',
-       'Blousons & Vestes', 'Pantalons', 'Chaussures pour fille',
-       'Tops & Tees', 'Vêtements de nuit',
-       'Sous-vêtements de maintien de grossesse',
+       'Blousons & Vestes', 'Tops', 'Pantalons', 'Chaussures pour fille',
+       'Vêtements de nuit',
+       'Sous-vêtements de maintien de grossesse', 'Trainers',
        'Bas', 'Chaussures pour bébé',
-       'Chapeaux', 'Pantalons & Capris',
-       "Vêtements d'extérieur & Manteaux",
+       'Chapeaux',
+       'Trousses', "Vêtements d'extérieur & Manteaux",
        'Robes & Sacs de couchage', 'Chaussures pour enfant',
        'Lingerie de grossesse', 'Accessoires pour cheveux', 'Sacs à dos',
        'Accesssoires des vêtements', 'Écharpes', 'Chaussettes',
        'Sets de coutumes', 'Lunettes de soleil', 'Sacs des couches',
-       'Sacs à main', 'Vêtements pour fille',
+       'Sacs à main', 'Swimwear', 'Vêtements pour fille',
        'Vêtements de nuit & Robes',
-       'Colliers & Pendentifs', 'Imperméables', 'Accessoires pour enfant']
+       'Colliers & Pendentifs', 'Imperméables', 'Accessoires pour enfant',
+       'Accessoires']
 
  
 drop_cloumns = ['discount', 'currency', 'brand', 'brand_url', 'codCountry', 'variation_0_color', 'variation_1_color', 'variation_0_thumbnail', 'variation_0_image', 'variation_1_thumbnail', 'variation_1_image', 'image_url', 'model', 'url']

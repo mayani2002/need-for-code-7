@@ -1,6 +1,5 @@
 export const getAllProducts = async (productCategory) => {
     // return "Request Recieved!";
-    console.log(productCategory);
     const res = await fetch('http://localhost:5000/GetAllProducts', {
         method: 'POST',
         body: JSON.stringify({ "Category": productCategory }),
