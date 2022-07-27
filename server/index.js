@@ -4,6 +4,7 @@ import cors from 'cors';
 import bodyParser from 'body-parser';
 
 import Connection from './database/connection.js';
+// import route from './Router/routes.js';
 
 dotenv.config();
 const app = express();
@@ -11,6 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
+// app.use('/', route);
 
 const PORT = 8000;
 const mongoUsername = process.env.MONGO_USERNAME;
