@@ -2,7 +2,7 @@ import { Navigate, useRoutes } from 'react-router-dom';
 // layouts
 import DashboardLayout from './layouts/dashboard';
 import LogoOnlyLayout from './layouts/LogoOnlyLayout';
-//
+import Products from './pages/Products';
 import Blog from './pages/Blog';
 import SellerDashboard from './pages/SellerDashboard';
 import User from './pages/User';
@@ -10,7 +10,6 @@ import Login from './pages/Login';
 import NotFound from './pages/Page404';
 import Register from './pages/Register';
 import CreateProductPost from './pages/CreateProductPost';
-import Products from './pages/Products';
 import DashboardApp from './pages/DashboardApp';
 
 // ----------------------------------------------------------------------
