@@ -9,9 +9,9 @@ from models import women_model
 from models import shoes_model
 import json
 
-kidsData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/kids.csv')
-menData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/men.csv')
-womenData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/women.csv')
+kidsData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/df_kids.csv')
+menData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/df_men.csv')
+womenData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/df_women.csv')
 shoesData = pd.read_csv('C:/Users/hp/Documents/need-for-code-7/ml/data/shoes.csv')
 
 # Creating a Flask App

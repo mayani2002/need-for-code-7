@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
-import { useNavigate } from 'react-router-dom';
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 // material
 import { Box, Card, Link, Typography, Stack } from '@mui/material';
 import { styled } from '@mui/material/styles';
@@ -42,7 +41,7 @@ export default function ShopProductCard({ product }) {
         };
         const handleClick = ()=>{
           console.log(product);
-          navigateTo("/productDescription")
+          navigateTo("/dashboard/productDescription");
         }
     
   return (

@@ -24,7 +24,7 @@ export default function Router() {
         // { path: 'app', element: <DashboardApp /> },
         { path: 'sellerDashboard', element: <SellerDashboard /> },
         { path: 'user', element: <User /> },
-        { path: 'products', element: <Products /> },
+        { path: 'products', element: <Products />, },
         { path: 'productDescription', element: <ProductDescription /> },
         // { path: 'blog', element: <Blog /> },
       ],

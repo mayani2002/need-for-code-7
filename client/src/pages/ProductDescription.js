@@ -3,11 +3,12 @@ import PropTypes from 'prop-types';
 // material
 import { Container, Box, Stack, Typography, Button, Tab, Tabs, Card, List, ListItem, Chip, CardMedia, CardContent, CardActions } from '@mui/material';
 // components
-import Page from '../components/Page';
+// import Page from '../components/Page';
 import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
 // mock
 import PRODUCTS from '../_mock/products';
 import Category from '../_mock/category';
+import Page from '../components/Page';
 
 export default function ProductDescription(product) {
 
