@@ -11,6 +11,7 @@ import NotFound from './pages/Page404';
 import Register from './pages/Register';
 import CreateProductPost from './pages/CreateProductPost';
 import Products from './pages/Products';
+import ProductDescription from './pages/ProductDescription';
 import DashboardApp from './pages/DashboardApp';
 
 // ----------------------------------------------------------------------
@@ -25,6 +26,7 @@ export default function Router() {
         { path: 'sellerDashboard', element: <SellerDashboard /> },
         { path: 'user', element: <User /> },
         { path: 'products', element: <Products /> },
+        { path: 'productDescription', element: <ProductDescription /> },
         // { path: 'blog', element: <Blog /> },
       ],
     },

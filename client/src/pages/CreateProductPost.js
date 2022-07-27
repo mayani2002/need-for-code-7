@@ -21,6 +21,7 @@ export const useFormControls = () => {
 
     const [values, setValues] = useState(initialFormValues);
     const [errors, setErrors] = useState({});
+    const [category, setCategory] = useState('Women')
 
     const validate = (fieldValues = values) => {
         const temp = { ...errors }
@@ -35,6 +36,10 @@ export const useFormControls = () => {
             temp.ProductColor = fieldValues.ProductColor ? "" : "This field is required."
 
 
+        if ("ProductPrice" in fieldValues)
+            temp.ProductPrice = fieldValues.ProductPrice ? "" : "This field is required."
+
+
         if ("category" in fieldValues)
             temp.category = fieldValues.category ? "" : "This field is required."
 
@@ -46,16 +51,18 @@ export const useFormControls = () => {
         });
     }
 
-    const handleChange = (event) => {
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setValues({
+            ...values,
+            [name]: value
         });
+        validate({ [name]: value });
     };
 
     const handleCheckBox = (event) => {
         const checkBoxData = event.target;
+        validate();
         setValues({
             ...values,
             [checkBoxData.name]: checkBoxData.checked
@@ -64,17 +71,18 @@ export const useFormControls = () => {
 
 
     const formIsValid = (fieldValues = values) => {
+
         const isValid =
-            fieldValues.firstName &&
-            fieldValues.lastName &&
-            fieldValues.email &&
-            fieldValues.userType &&
-            fieldValues.password &&
+            fieldValues.ProductName &&
+            fieldValues.ProductDescription &&
+            fieldValues.ProductColor &&
+            fieldValues.ProductPrice &&
+            fieldValues.category &&
+            fieldValues.subCategory &&
             Object.values(errors).every((x) => x === "");
 
         return isValid;
     };
-
 
     return {
         handleChange,
@@ -91,6 +99,10 @@ export default function CreateProductPost() {
         values
     } = useFormControls();
 
+    // let categoryNum = 0;
+
+    const [categoryOpen, setCategoryOpen] = useState(false);
+    const [subCategoryOpen, setSubCategoryOpen] = useState(false);
 
     const navigate = useNavigate();
 
@@ -102,10 +114,24 @@ export default function CreateProductPost() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+        const isValid = formIsValid(data);
+        if (isValid) {
+            console.log(data);
+        }
+    };
+    const handleCategoryClose = () => {
+        setCategoryOpen(false);
+    };
+
+    const handleCategoryOpen = () => {
+        setCategoryOpen(true);
+    };
+    const handleSubCategoryClose = () => {
+        setSubCategoryOpen(false);
+    };
+
+    const handleSubCategoryOpen = () => {
+        setSubCategoryOpen(true);
     };
 
     return (
@@ -127,7 +153,9 @@ export default function CreateProductPost() {
                             <TextField
                                 autoComplete="given-name"
                                 name="ProductName"
+                                value={values.ProductName}
                                 required
+                                onChange={handleChange}
                                 fullWidth
                                 id="ProductName"
                                 label="Product Name"
@@ -140,13 +168,16 @@ export default function CreateProductPost() {
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
-                                    value={values.category}
+                                    open={categoryOpen}
+                                    onClose={handleSubCategoryClose}
+                                    onOpen={handleSubCategoryOpen}
+                                    // value={values.category}
                                     label="subCategory"
                                     onChange={handleChange}
                                 >
                                     {Category.map((option, index) =>
                                         <Box key={index}>
-                                            <MenuItem value={option[0]}>{option[0]}</MenuItem>
+                                            <MenuItem value={index.toString()}>{option[0]}</MenuItem>
                                         </Box>
                                     )}
                                 </Select>
@@ -159,16 +190,20 @@ export default function CreateProductPost() {
                                 <Select
                                     labelId="demo-simple-select-label"
                                     id="demo-simple-select"
+                                    open={subCategoryOpen}
+                                    onClose={handleSubCategoryClose}
+                                    onOpen={handleSubCategoryOpen}
                                     value={values.subCategory}
                                     label="subCategory"
                                     onChange={handleChange}
                                 >
-                                    {Category.map((option, index) =>
-                                        <Box key={option.id}>
-                                            <MenuItem value={option[1]}>{option[1]}</MenuItem>
+
+                                    {/* {Category[parseInt(values.category, 10)][1].map((option, index) =>
+                                        <Box key={index}>
+                                            <MenuItem value={option}>{option}</MenuItem>
                                         </Box>
-                                    )
-                                    }
+                                        )} */}
+
                                 </Select>
                             </FormControl>
                         </Grid>
@@ -176,6 +211,8 @@ export default function CreateProductPost() {
                             <TextField
                                 id="outlined-multiline-static"
                                 label="Multiline"
+                                value={values.Description}
+                                onChange={handleChange}
                                 multiline
                                 rows={4} sx={{ width: '100%' }}
                                 defaultValue="Description"
@@ -189,7 +226,7 @@ export default function CreateProductPost() {
                                 <OutlinedInput
                                     id="outlined-adornment-amount"
                                     value={values.amount}
-                                    onChange={handleChange('amount')}
+                                    onChange={handleChange}
                                     startAdornment={<InputAdornment position="start">$</InputAdornment>}
                                     label="Amount"
                                 />

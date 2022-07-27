@@ -81,7 +81,6 @@ export default function EcommerceShop() {
     setOpenFilter(false);
   };
 
-
   return (
     <Page title="Dashboard: Products">
       <Container>
