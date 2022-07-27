@@ -1,18 +1,15 @@
-import { useState } from 'react';
-import PropTypes from 'prop-types';
-// material
 import { Container, Box, Stack, Typography, Button, Tab, Tabs, Card, List, ListItem, Chip, CardMedia, CardContent, CardActions } from '@mui/material';
-// components
-// import Page from '../components/Page';
+import { useLocation } from "react-router-dom";
+import { fCurrency } from '../utils/formatNumber';
 import { ProductSort, ProductList, ProductCartWidget, ProductFilterSidebar } from '../sections/@dashboard/products';
-// mock
 import PRODUCTS from '../_mock/products';
 import Category from '../_mock/category';
 import Page from '../components/Page';
 
-export default function ProductDescription(product) {
-
-
+export default function ProductDescription() {
+    const { productDetails } = useLocation();
+    const { productName, productImageUrl, productCurrentPrice } = productDetails;
+    console.log(productDetails);
     return (
         <Page title="Dashboard: ProductDescription">
             <Container sx={{ width: "100%" }}>
@@ -22,16 +19,18 @@ export default function ProductDescription(product) {
                             component="img"
                             height="140"
                             weidth="340"
-                            image="/static/images/cards/contemplative-reptile.jpg"
+                            image={productImageUrl}
                             alt="green iguana"
                         />
                         <CardContent>
                             <Typography gutterBottom variant="h5" component="div">
-                                {product.name}
+                                {productName}
                             </Typography>
                         </CardContent>
                         <CardActions>
-                            <Button size="small">Share</Button>
+                        <Typography variant="subtitle1">
+                            {fCurrency(productCurrentPrice)}
+                        </Typography>
                             <Button size="small">Learn More</Button>
                         </CardActions>
                     </Card>

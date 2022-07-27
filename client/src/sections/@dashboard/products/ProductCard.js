@@ -29,11 +29,16 @@ export default function ShopProductCard({ product }) {
         const navigate = useNavigate();
 
         const navigateTo = (location) => {
-            navigate(location);
+            navigate(location, { productDetails: {
+              productName: product.name,
+              productImageUrl: product.image_url,
+              productCurrentPrice: product.current_price
+            } 
+          });
         };
         const handleClick = ()=>{
           console.log(product);
-          navigateTo("/dashboard/productDescription", );
+          navigateTo("/dashboard/productDescription");
         }
     
   return (
