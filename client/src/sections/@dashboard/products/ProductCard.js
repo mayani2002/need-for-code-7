@@ -39,7 +39,7 @@ export default function ShopProductCard({ product }) {
   return (
     <Card onClick={handleClick}>
       <Box sx={{ pt: '100%', position: 'relative' }}>
-        {isNew && (
+        {product.is_new && (
           <Label
             variant="filled"
             color={'info'}
