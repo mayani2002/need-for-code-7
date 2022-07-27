@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 // material
 import { Box, Card, Link, Typography, Stack } from '@mui/material';
@@ -26,15 +27,31 @@ ShopProductCard.propTypes = {
 };
 
 export default function ShopProductCard({ product }) {
-  const { name, cover, price, colors, status, priceSale } = product;
+  const { 
+          brand, brandUrl, category, codCountry, currency,
+          currentPrice, discount, id, imageUrl, isNew, likesCount, model, 
+          name, rawPrice, subcategoy, url, variation0Color, variation0Image, 
+          variation0Thumbnail, variation1Color, variation1Image, variation1Thumbnail
+        } = product;
+  
 
+        const navigate = useNavigate();
+
+        const navigateTo = (location) => {
+            navigate(location);
+        };
+        const handleClick = ()=>{
+          console.log(product);
+          navigateTo("/productDescription")
+        }
+    
   return (
-    <Card>
+    <Card onClick={handleClick}>
       <Box sx={{ pt: '100%', position: 'relative' }}>
-        {status && (
+        {isNew && (
           <Label
             variant="filled"
-            color={(status === 'sale' && 'error') || 'info'}
+            color={'info'}
             sx={{
               zIndex: 9,
               top: 16,
@@ -43,10 +60,16 @@ export default function ShopProductCard({ product }) {
               textTransform: 'uppercase',
             }}
           >
-            {status}
+            'NEW'
           </Label>
         )}
-        <ProductImgStyle alt={name} src={cover} />
+        <img style={{ 
+          top: 0,
+          width: '100%',
+          height: '100%',
+          objectFit: 'cover',
+          position: 'absolute',
+        }} alt={name} src={product.image_url} />
       </Box>
 
       <Stack spacing={2} sx={{ p: 3 }}>
@@ -57,9 +80,9 @@ export default function ShopProductCard({ product }) {
         </Link>
 
         <Stack direction="row" alignItems="center" justifyContent="space-between">
-          <ColorPreview colors={colors} />
+          {/* <ColorPreview colors={colors} /> */}
           <Typography variant="subtitle1">
-            <Typography
+            {/* <Typography
               component="span"
               variant="body1"
               sx={{
@@ -69,8 +92,8 @@ export default function ShopProductCard({ product }) {
             >
               {priceSale && fCurrency(priceSale)}
             </Typography>
-            &nbsp;
-            {fCurrency(price)}
+            &nbsp; */}
+            {fCurrency(product.current_price)}
           </Typography>
         </Stack>
       </Stack>
