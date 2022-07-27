@@ -90,7 +90,9 @@ export default function EcommerceShop() {
 	const handleCloseFilter = () => {
 		setOpenFilter(false);
 	};
-
+  const handleChipClick = () => {
+  
+  }
 
 	return (
 		<Page title="Dashboard: Products">
@@ -132,7 +134,7 @@ export default function EcommerceShop() {
 									backgroundColor: '#D1D1D1'
 								}
 							}}
-							// onClick={handleChipClick} 
+							onClick={handleChipClick} 
 							label={product} 
 							variant="outlined" />
 					</Stack>
@@ -151,7 +153,7 @@ export default function EcommerceShop() {
 					}} key={product.id} item xs={12} sm={6} md={3}>
 					<Stack direction="row" spacing={0}>
 						<Chip 
-							// onClick={handleChipClick} 
+							onClick={handleChipClick} 
 							label={product} variant="outlined" />
 					</Stack>
 					</ListItem>
